@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#toast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 9999;
+}
+
+.toast {
+    background-color: #fff;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid;
+    justify-content: space-between;
+    width: 450px;
+    height: 100px;
+    border-radius: 4px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.8);
+    transition: all linear 0.3s;
+}
+
+@keyframes SlideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px))
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.toast+.toast {
+    margin-top: 32px;
+}
+
+.toast--success {
+    border-color: rgb(236, 173, 0);
+}
+
+.toast--success .toast__icon {
+    color: rgb(236, 173, 0);
+}
+
+.toast--info {
+    border-color: rgb(44, 0, 238);
+}
+
+.toast--info .toast__icon {
+    color: rgb(44, 0, 238);
+}
+
+.toast--warning {
+    border-color: rgb(123, 255, 0);
+}
+
+.toast--warning .toast__icon {
+    color: rgb(123, 255, 0);
+}
+
+.toast--error {
+    border-color: red;
+}
+
+.toast--error .toast__icon {
+    color: red
+}
+
+.toast__icon,
+.toast__close {
+    padding: 0 16px;
+    font-size: 32px
+}
+
+.toast__body {}
+
+.toast__title {}
+
+.toast__msg {}
+
+.toast__close {
+    color: rgba(0, 0, 0, 0.3)
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    min-width: 120px;
+    transition: opacity 0.2s ease;
+    user-select: none;
+}
+
+.btn+.btn {
+    margin-left: 16px;
+}
+
+.btn--success {
+    background-color: #71be34;
+}
+
+.btn--danger {
+    background-color: #ff623d;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
